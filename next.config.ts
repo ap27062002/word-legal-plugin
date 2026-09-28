@@ -10,7 +10,8 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Content-Security-Policy",
-            value: "frame-ancestors 'self' https://*.officeapps.live.com https://*.office.com https://*.live.com;",
+            value:
+              "frame-ancestors 'self' https://appsforoffice.microsoft.com https://*.office.com https://*.officeapps.live.com https://*.cloud.microsoft https://*.sharepoint.com https://*.resources.office.net;",
           },
         ],
       },
