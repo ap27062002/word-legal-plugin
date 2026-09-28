@@ -2,7 +2,7 @@
 <!--
   Office Add-in manifest (classic XML schema).
 
-  Points at the production deployment: https://word-legal-plugin.vercel.app
+  Points at the production deployment: https://word-legal-plugin-9x55q5rmu-dreamap1.vercel.app
   If you redeploy under a different domain, update every URL below to match.
 -->
 <OfficeApp
@@ -18,12 +18,12 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Rulebook Copilot" />
   <Description DefaultValue="Reviews the open document against the company rulebook and suggests changes." />
-  <IconUrl DefaultValue="https://word-legal-plugin.vercel.app/icon-32.png" />
-  <HighResolutionIconUrl DefaultValue="https://word-legal-plugin.vercel.app/icon-80.png" />
-  <SupportUrl DefaultValue="https://word-legal-plugin.vercel.app" />
+  <IconUrl DefaultValue="https://word-legal-plugin-9x55q5rmu-dreamap1.vercel.app/icon-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://word-legal-plugin-9x55q5rmu-dreamap1.vercel.app/icon-80.png" />
+  <SupportUrl DefaultValue="https://word-legal-plugin-9x55q5rmu-dreamap1.vercel.app" />
 
   <AppDomains>
-    <AppDomain>https://word-legal-plugin.vercel.app</AppDomain>
+    <AppDomain>https://word-legal-plugin-9x55q5rmu-dreamap1.vercel.app</AppDomain>
   </AppDomains>
 
   <Hosts>
@@ -31,7 +31,7 @@
   </Hosts>
 
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://word-legal-plugin.vercel.app/taskpane" />
+    <SourceLocation DefaultValue="https://word-legal-plugin-9x55q5rmu-dreamap1.vercel.app/taskpane" />
   </DefaultSettings>
 
   <Permissions>ReadWriteDocument</Permissions>
@@ -75,13 +75,13 @@
 
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://word-legal-plugin.vercel.app/icon-16.png" />
-        <bt:Image id="Icon.32x32" DefaultValue="https://word-legal-plugin.vercel.app/icon-32.png" />
-        <bt:Image id="Icon.80x80" DefaultValue="https://word-legal-plugin.vercel.app/icon-80.png" />
+        <bt:Image id="Icon.16x16" DefaultValue="https://word-legal-plugin-9x55q5rmu-dreamap1.vercel.app/icon-16.png" />
+        <bt:Image id="Icon.32x32" DefaultValue="https://word-legal-plugin-9x55q5rmu-dreamap1.vercel.app/icon-32.png" />
+        <bt:Image id="Icon.80x80" DefaultValue="https://word-legal-plugin-9x55q5rmu-dreamap1.vercel.app/icon-80.png" />
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Commands.Url" DefaultValue="https://word-legal-plugin.vercel.app/taskpane" />
-        <bt:Url id="Taskpane.Url" DefaultValue="https://word-legal-plugin.vercel.app/taskpane" />
+        <bt:Url id="Commands.Url" DefaultValue="https://word-legal-plugin-9x55q5rmu-dreamap1.vercel.app/taskpane" />
+        <bt:Url id="Taskpane.Url" DefaultValue="https://word-legal-plugin-9x55q5rmu-dreamap1.vercel.app/taskpane" />
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="Group.Label" DefaultValue="Legal Copilot" />
