@@ -47,7 +47,7 @@ URL. Two ways to satisfy that during development:
 
 ## Sideloading into Word (testing)
 
-The app is deployed at **https://word-legal-plugin-9x55q5rmu-dreamap1.vercel.app**, and
+The app is deployed at **https://word-legal-plugin.vercel.app**, and
 `manifest/manifest.xml` already points at it — make sure `ANTHROPIC_API_KEY`
 is set in the Vercel project's environment variables before testing.
 
