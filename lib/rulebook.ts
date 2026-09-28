@@ -1,7 +1,4 @@
-import { readFile } from "fs/promises";
-import path from "path";
-
-const PLAYBOOK_PATH = path.join(process.cwd(), "rulebook", "chargepoint-nda-playbook.json");
+import playbook from "../rulebook/chargepoint-nda-playbook.json";
 
 interface PlaybookRule {
   id: string;
@@ -11,16 +8,9 @@ interface PlaybookRule {
   fallbacks: string[];
 }
 
-interface Playbook {
-  rules: PlaybookRule[];
-}
-
-export async function loadRulebook(): Promise<string> {
-  const raw = await readFile(PLAYBOOK_PATH, "utf-8");
-  const playbook = JSON.parse(raw) as Playbook;
-
+export function loadRulebook(): string {
   return playbook.rules
-    .map((rule) => {
+    .map((rule: PlaybookRule) => {
       const notAcceptable = rule.notAcceptable.map((item) => `  - ${item}`).join("\n");
       const fallbacks = rule.fallbacks.map((item) => `  - ${item}`).join("\n");
 

@@ -9,6 +9,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "documentText is required" }, { status: 400 });
   }
 
-  const findings = await reviewDocument(documentText);
-  return NextResponse.json({ findings });
+  try {
+    const findings = await reviewDocument(documentText);
+    return NextResponse.json({ findings });
+  } catch (err) {
+    console.error("Review failed:", err);
+    const message = err instanceof Error ? err.message : "Unknown error";
+    return NextResponse.json({ error: message }, { status: 500 });
+  }
 }

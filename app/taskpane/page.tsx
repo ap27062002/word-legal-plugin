@@ -54,7 +54,8 @@ export default function TaskPane() {
       });
 
       if (!response.ok) {
-        throw new Error(`Review request failed (${response.status})`);
+        const body = await response.json().catch(() => null);
+        throw new Error(body?.error ?? `Review request failed (${response.status})`);
       }
 
       const data = (await response.json()) as { findings: Finding[] };
