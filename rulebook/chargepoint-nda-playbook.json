@@ -1,0 +1,180 @@
+{
+  "rules": [
+    {
+      "id": "form-of-agreement-use-chargepoint-paper",
+      "title": "Form of Agreement — Use ChargePoint Paper",
+      "startingPosition": "Open on ChargePoint's standard Mutual NDA template (Rev. 032023). ChargePoint's form is short, balanced, and California-law governed. Propose it as the starting document for all new NDA engagements regardless of counterparty size.",
+      "notAcceptable": [
+        "Accepting counterparty paper without first reviewing and redlining it against ChargePoint's template positions; signing a counterparty form that omits ChargePoint's core protections (no-license clause, anti-competitive-use restriction, California jurisdiction) without restoring them"
+      ],
+      "fallbacks": [
+        "If counterparty insists on their own paper, accept it as the base but redline it to restore all ChargePoint template positions before returning.",
+        "If counterparty resists a full redline, negotiate clause-by-clause using this playbook's positions as the guide, prioritizing the provisions marked as not acceptable."
+      ]
+    },
+    {
+      "id": "definition-of-confidential-information-scope",
+      "title": "Definition of Confidential Information — Scope",
+      "startingPosition": "Use ChargePoint's template definition: confidential or proprietary information disclosed by one party to the other, including business plans, financial data, employee data, customer lists, designs, specifications, drawings, diagrams, computer code, trade secrets, discoveries, ideas, concepts, know-how, techniques, and other technical and business information; plus third-party information the disclosing party is obligated to protect; plus copies, notes, abstracts, and tangible embodiments; plus the existence and progress of the Purpose.",
+      "notAcceptable": [
+        "A definition limited solely to information marked or labeled 'confidential' in writing at the time of disclosure with no reasonableness catch-all (as proposed by ESMT/Elite Semiconductor); a carve-out that excludes the existence of the discussions or the Purpose from the definition; a carve-out that excludes general industry practices in a way that could swallow ChargePoint's proprietary methods (as proposed by Zero Electric for 'general electrical contracting methods')"
+      ],
+      "fallbacks": [
+        "Accept a reasonableness catch-all ('information a reasonable person would understand to be confidential given its nature or the circumstances of disclosure') in addition to a marking requirement, as used in the CaptivateIQ and Sunnova signed forms.",
+        "Accept a 10-day written designation window for oral disclosures (as accepted in the Zero Electric final), provided the reasonableness catch-all is retained.",
+        "Accept a 15-day oral designation window (as in the ESMT form) only if the definition otherwise covers all categories in ChargePoint's template.",
+        "Accept counterparty-specific carve-outs (e.g., general industry practices) only if narrowly drafted to exclude only information that is genuinely not proprietary to either party and does not undercut ChargePoint's core IP protections."
+      ]
+    },
+    {
+      "id": "standard-of-care-for-protection",
+      "title": "Standard of Care for Protection",
+      "startingPosition": "Same degree of care as the receiving party uses to protect its own confidential information of a similar nature, but in no event less than reasonable care.",
+      "notAcceptable": [
+        "Any standard of care below reasonable care; a standard limited only to 'commercially reasonable' care without a floor of 'reasonable care' (as proposed by Sunnova — ChargePoint accepted 'commercially reasonable' in that deal but this should be resisted)"
+      ],
+      "fallbacks": [
+        "Accept 'commercially reasonable degree of care' if the counterparty insists, provided the floor of 'no less than reasonable care' is retained.",
+        "Accept 'reasonable measures' language (as used in TNC form) if it is paired with an explicit 'no less than reasonable care' floor."
+      ]
+    },
+    {
+      "id": "permitted-use-purpose-limitation",
+      "title": "Permitted Use — Purpose Limitation",
+      "startingPosition": "Confidential Information may only be used for the purpose of potential and/or existing business opportunities/engagements between the parties (the 'Purpose'). The Purpose should be stated broadly enough to cover both evaluation and execution of any resulting relationship.",
+      "notAcceptable": [
+        "A Purpose definition so narrow it would require a new NDA for each phase of the relationship; a Purpose that explicitly permits the counterparty to use ChargePoint's information to compete with ChargePoint or to build a competing product or service"
+      ],
+      "fallbacks": [
+        "Accept a more specific Purpose description if the counterparty requires it (e.g., 'evaluation, procurement and provision of EV charging technology' as in Sunnova), provided it is broad enough to cover the full anticipated engagement.",
+        "Accept a Purpose that references an RFI/RFP process (as in TNC) if that is the actual context, provided the Purpose language does not limit use to only the RFI/RFP phase."
+      ]
+    },
+    {
+      "id": "anti-competitive-use-restriction",
+      "title": "Anti-Competitive Use Restriction",
+      "startingPosition": "The receiving party may not use Confidential Information to (A) build a competitive product or service, or (B) copy any features, functions, interface, graphics, or 'look and feel' of the disclosing party's product or Confidential Information. This restriction must appear expressly in the agreement.",
+      "notAcceptable": [
+        "Omission of the anti-competitive use restriction entirely; language that affirmatively permits the counterparty to compete freely using information learned through the NDA process (as proposed in the Sunnova and DFIN 'Competitive Activities' clause)"
+      ],
+      "fallbacks": [
+        "Accept a 'residuals' or 'general skills and knowledge' carve-out only if it is limited to information retained in unaided memory and does not permit use of specifically recalled Confidential Information.",
+        "Accept removal of the 'look and feel' restriction if the counterparty is not a technology company and the risk of UI copying is low, provided the core competitive-product restriction remains."
+      ]
+    },
+    {
+      "id": "disclosure-to-representatives-affiliates",
+      "title": "Disclosure to Representatives / Affiliates",
+      "startingPosition": "Disclosure permitted only to employees and agents of the receiving party (and its Affiliates) who have a need to know for the Purpose and are bound by confidentiality obligations no less protective than this Agreement. The receiving party is responsible for any breach by its employees or agents.",
+      "notAcceptable": [
+        "Disclosure permitted to an unlimited class of 'Representatives' including potential funding sources, non-fiduciary trustees, or advisory board members without prior written consent (as in TNC's original form); no responsibility of the receiving party for its representatives' breaches"
+      ],
+      "fallbacks": [
+        "Accept 'Representatives' defined to include directors, officers, employees, contractors, professional advisers, and authorized agents (as in CaptivateIQ final), provided each must be bound by equivalent confidentiality obligations.",
+        "Accept inclusion of affiliates in the permitted disclosure circle if affiliates are expressly bound by the same obligations and the receiving party remains liable for affiliate breaches.",
+        "Accept inclusion of legal and financial advisors (attorneys, accountants) as permitted recipients without individual written agreements, given their existing professional duties of confidentiality."
+      ]
+    },
+    {
+      "id": "compelled-disclosure-notice-and-cooperation",
+      "title": "Compelled Disclosure — Notice and Cooperation",
+      "startingPosition": "If the receiving party is required by judicial or governmental proceedings to disclose Confidential Information, it must provide the disclosing party with reasonable prior notice and obtain, or provide the disclosing party an opportunity to obtain, a protective order or confidential treatment before making any disclosure.",
+      "notAcceptable": [
+        "No notice obligation at all; a notice obligation that is triggered only after disclosure has already occurred; a requirement that the receiving party bear the cost of seeking a protective order on behalf of the disclosing party"
+      ],
+      "fallbacks": [
+        "Accept 'prompt written notice' rather than 'reasonable prior notice' if the counterparty argues that timing of legal process makes advance notice impractical.",
+        "Accept 'where legally permissible' or 'where practicable' as a qualifier on the notice obligation (as in several signed forms) to account for situations where notice is prohibited by law.",
+        "Accept a provision requiring disclosure of only the minimum legally required portion of Confidential Information, without requiring the receiving party to seek a protective order at its own expense."
+      ]
+    },
+    {
+      "id": "return-or-destruction-of-confidential-informatio",
+      "title": "Return or Destruction of Confidential Information",
+      "startingPosition": "All Confidential Information remains the property of the disclosing party and must be returned or destroyed within 30 days of a written request or upon termination. The receiving party must provide written certification of compliance, signed by an officer. Archived backup copies are exempt from deletion but remain subject to confidentiality obligations.",
+      "notAcceptable": [
+        "No return or destruction obligation at all; a return obligation with no certification requirement and no timeline; destruction without any certification (as proposed by Zero Electric, which sought to delete the officer-certification requirement)"
+      ],
+      "fallbacks": [
+        "Accept destruction in lieu of return (with certification) as an alternative to physical return, which is standard practice.",
+        "Accept removal of the officer-certification requirement if the counterparty is a large enterprise and substitutes a written confirmation from any authorized representative.",
+        "Accept a longer return/destruction window (e.g., 60 days as in ESMT) for large counterparties with complex IT environments, provided the confidentiality obligation continues during that period."
+      ]
+    },
+    {
+      "id": "term-and-termination",
+      "title": "Term and Termination",
+      "startingPosition": "The Agreement is effective from the Effective Date and continues until written notice of termination is provided by either party. All confidentiality obligations with respect to information disclosed before termination survive termination indefinitely.",
+      "notAcceptable": [
+        "A fixed term with no survival of confidentiality obligations after expiration; a confidentiality survival period of less than 3 years after termination; a term that automatically expires without any survival clause"
+      ],
+      "fallbacks": [
+        "Accept a fixed term of 3 years with a 3-year post-termination survival of confidentiality obligations (as accepted in the Itron final), which is the most common counterparty ask.",
+        "Accept a fixed term of 5 years with a 5-year survival (as in the Microchip/OTR forms) for counterparties in highly sensitive technology sectors, provided trade secret obligations survive indefinitely.",
+        "Accept a fixed term of 2 years with a 2-year survival (as in DFIN) only for lower-risk engagements where the information exchanged is not highly sensitive technical or financial data.",
+        "Accept a provision that trade secret obligations survive indefinitely even if the general confidentiality term is fixed."
+      ]
+    },
+    {
+      "id": "governing-law-and-jurisdiction",
+      "title": "Governing Law and Jurisdiction",
+      "startingPosition": "California law governs, exclusive of its choice-of-law principles. Exclusive jurisdiction and venue in the state and federal courts of Santa Clara County, California.",
+      "notAcceptable": [
+        "Governing law of a foreign jurisdiction (e.g., Taiwan ROC as proposed by ESMT); arbitration as the exclusive dispute resolution mechanism without ChargePoint's consent; a jurisdiction clause that removes Santa Clara County as the exclusive venue"
+      ],
+      "fallbacks": [
+        "Accept Delaware law as an alternative governing law if the counterparty is a Delaware entity and strongly resists California law, provided Santa Clara County courts retain exclusive jurisdiction.",
+        "Accept a mutual consent to jurisdiction in both parties' home states (non-exclusive jurisdiction) if the counterparty is a large enterprise that cannot accept exclusive California jurisdiction, provided California law still governs.",
+        "Accept New Jersey or Washington state law only for counterparties (e.g., Subaru/Itron) where the relationship is critical and the counterparty's legal team has a firm policy against California law — but require that California courts remain available as a venue."
+      ]
+    },
+    {
+      "id": "assignment",
+      "title": "Assignment",
+      "startingPosition": "Neither party may assign the Agreement without the other party's prior written consent, except that no consent is needed for assignment in connection with a merger, acquisition, or sale of all or substantially all of the assets to which the Purpose relates.",
+      "notAcceptable": [
+        "Unrestricted assignment rights for the counterparty without ChargePoint's consent; an assignment clause that permits assignment to any affiliate without restriction and without the assignee being bound by the Agreement's obligations"
+      ],
+      "fallbacks": [
+        "Accept assignment to affiliates without consent if the assigning party remains liable for the affiliate's performance.",
+        "Accept a broader M&A carve-out that covers majority stock transfers (as in ChargePoint's template) rather than limiting it to asset sales."
+      ]
+    },
+    {
+      "id": "no-license-or-warranty",
+      "title": "No License or Warranty",
+      "startingPosition": "No license under any patents, copyrights, mask work rights, trademarks, or other proprietary rights is granted by disclosure of or access to Confidential Information. All Confidential Information is provided 'as is' without any express or implied warranties, including accuracy, completeness, or non-infringement.",
+      "notAcceptable": [
+        "Any provision that grants an implied license to use Confidential Information beyond the Purpose; a limited license to create derivative works from Confidential Information (as proposed in TNC's original form, which ChargePoint deleted); a warranty of accuracy or fitness for purpose"
+      ],
+      "fallbacks": [
+        "Accept a limited, non-transferable, non-sublicensable license to use disclosed materials solely to evaluate the Purpose (as in TNC's final form), provided it is expressly limited to evaluation and does not extend to derivative works or commercial use.",
+        "Accept a representation by the disclosing party that it has the right to disclose the information (as in ESMT's form) without accepting any broader warranty of accuracy or fitness."
+      ]
+    },
+    {
+      "id": "no-inducement-or-commitment",
+      "title": "No Inducement or Commitment",
+      "startingPosition": "Neither the disclosure nor access to Confidential Information constitutes an inducement or commitment to enter into any business relationship. Each party determines in its sole discretion what information to disclose. Any business relationship requires a separate written agreement.",
+      "notAcceptable": [
+        "Any provision that could be read as creating an obligation to negotiate in good faith toward a definitive agreement; any provision that restricts ChargePoint's ability to engage with other parties on similar topics during the NDA period"
+      ],
+      "fallbacks": [
+        "Accept a 'no obligation to proceed' clause (as in TNC and Sunnova forms) that explicitly states neither party is obligated to enter into any transaction — this is equivalent to ChargePoint's template position.",
+        "Accept a 'competitive activities' acknowledgment (as in Sunnova and DFIN finals) that each party may continue to compete with the other, provided it does not override the anti-competitive use restriction on Confidential Information itself."
+      ]
+    },
+    {
+      "id": "entire-agreement-and-modification",
+      "title": "Entire Agreement and Modification",
+      "startingPosition": "The Agreement constitutes the entire understanding between the parties on its subject matter and supersedes all prior oral and written agreements. Modifications require a signed writing by both parties.",
+      "notAcceptable": [
+        "A provision that allows unilateral modification by one party; an integration clause that is silent on whether prior NDAs between the parties are superseded (creating ambiguity about which agreement governs)"
+      ],
+      "fallbacks": [
+        "Accept a provision that the NDA does not supersede any existing confidentiality obligations in a prior executed agreement between the parties, if such a prior agreement exists and the counterparty requests this carve-out.",
+        "Accept a severability clause (standard in all reviewed forms) that preserves the rest of the Agreement if any provision is found unenforceable."
+      ]
+    }
+  ]
+}

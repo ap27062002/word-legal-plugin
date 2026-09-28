@@ -13,7 +13,7 @@ const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 const REPORT_FINDINGS_TOOL: Anthropic.Tool = {
   name: "report_findings",
-  description: "Report every place the document conflicts with, or should be revised to align with, the company rulebook.",
+  description: "Report every place the document deviates from the negotiation playbook, ranked by how far it falls from an acceptable position.",
   input_schema: {
     type: "object",
     properties: {
@@ -24,12 +24,32 @@ const REPORT_FINDINGS_TOOL: Anthropic.Tool = {
           properties: {
             quote: {
               type: "string",
-              description: "The exact, verbatim text from the document this finding is about. Must match the source text exactly so it can be located.",
+              description:
+                "The exact, verbatim text from the document this finding is anchored to, so it can be located and commented on. " +
+                "If the issue is a missing clause (the playbook rule's topic doesn't appear in the document at all), quote the nearest existing heading or sentence the new clause should follow.",
             },
-            issue: { type: "string", description: "What conflicts with policy, in one or two sentences." },
-            severity: { type: "string", enum: ["low", "medium", "high"] },
-            suggestion: { type: "string", description: "Concrete replacement or added language that would resolve the issue." },
-            rulebookCitation: { type: "string", description: "The rulebook section or clause this finding is based on." },
+            issue: {
+              type: "string",
+              description:
+                "What's wrong, in one or two sentences: how the document's language compares to the rule's starting position, and whether it lands in the rule's notAcceptable list or is an unlisted deviation.",
+            },
+            severity: {
+              type: "string",
+              enum: ["low", "medium", "high"],
+              description:
+                "high = matches or is equivalent to something in the rule's notAcceptable list, or a required clause is missing entirely. " +
+                "medium = deviates from the starting position and isn't covered by any listed fallback (needs a judgment call). " +
+                "low = deviates from the starting position but matches one of the rule's listed fallbacks (acceptable, flagged for visibility only).",
+            },
+            suggestion: {
+              type: "string",
+              description:
+                "Concrete replacement or added language, drawn from the rule's starting position (or nearest acceptable fallback) that would resolve the issue.",
+            },
+            rulebookCitation: {
+              type: "string",
+              description: "The playbook rule this finding is based on, as \"<title> (rule id: <id>)\".",
+            },
           },
           required: ["quote", "issue", "severity", "suggestion", "rulebookCitation"],
         },
@@ -46,16 +66,17 @@ export async function reviewDocument(documentText: string): Promise<Finding[]> {
     model: "claude-sonnet-5",
     max_tokens: 4096,
     system:
-      "You are a legal compliance reviewer for this company. You are given the company's rulebook and the full text of a document currently open for editing. " +
-      "Identify every clause or passage in the document that conflicts with, or should be revised to align with, the rulebook. " +
-      "Be precise: only flag real conflicts or gaps, not stylistic preferences. Quote the document text exactly as written so it can be located. " +
-      "Report your findings using the report_findings tool.",
+      "You are a legal negotiator reviewing a document against this company's negotiation playbook. Each playbook rule has a startingPosition " +
+      "(what to open with), a notAcceptable list (positions that must never be accepted as-is), and a fallbacks list (positions that are fine to " +
+      "settle on if the starting position can't be held). For every rule, check what the document actually says on that topic (including if it's " +
+      "missing entirely) and compare it against these three. Only flag real deviations, not stylistic differences that don't change the legal " +
+      "position. Quote the document text exactly as written so it can be located. Report your findings using the report_findings tool.",
     tools: [REPORT_FINDINGS_TOOL],
     tool_choice: { type: "tool", name: "report_findings" },
     messages: [
       {
         role: "user",
-        content: `<company_rulebook>\n${rulebook}\n</company_rulebook>\n\n<document>\n${documentText}\n</document>`,
+        content: `<negotiation_playbook>\n${rulebook}\n</negotiation_playbook>\n\n<document>\n${documentText}\n</document>`,
       },
     ],
   });

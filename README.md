@@ -1,25 +1,35 @@
 # Word Legal Copilot
 
 A Word add-in for legal teams: it reads the document currently open in
-Word, compares it against the company rulebook, and surfaces
-recommended changes as Word comments the reviewer can accept or
-dismiss.
+Word, compares it against ChargePoint's Mutual NDA negotiation
+playbook, and surfaces recommended changes — anchored to the exact
+rule each one is based on — as Word comments the reviewer can accept
+or dismiss.
 
 ## How it works
 
 - **Task pane add-in** (`app/taskpane/page.tsx`) — loaded inside Word
   via Office.js. Pulls the full document text, sends it to the backend,
-  and renders findings. Each finding can be inserted into the document
-  as a Word comment anchored to the offending text.
+  and renders findings as a playbook-style panel: a progress bar, one
+  collapsible card per finding (colored by severity), and Dismiss/Apply
+  actions. Applying inserts a Word comment anchored to the offending
+  text.
 - **Backend agent** (`app/api/review/route.ts` + `lib/agent.ts`) — a
-  Next.js API route that sends the document text and the company
-  rulebook to Claude, forcing a structured response (via tool use) of
+  Next.js API route that sends the document text and the playbook to
+  Claude, forcing a structured response (via tool use) of
   `{ quote, issue, severity, suggestion, rulebookCitation }` findings.
-- **Rulebook** (`rulebook/company-rulebook.md`) — MVP uses full-context
-  stuffing: the whole file is included in every request. Replace the
-  placeholder with your real rulebook. Once it's large or changes
-  often, swap this for retrieval (chunk + embed + fetch relevant
-  sections per request) instead of sending the whole thing every time.
+  Severity is derived from the playbook's own structure: `high` means
+  the document matches something in a rule's `notAcceptable` list (or a
+  required clause is missing entirely), `medium` means it deviates from
+  the rule's `startingPosition` without matching any listed `fallback`,
+  and `low` means it deviates but lands on an accepted fallback.
+- **Playbook** (`rulebook/chargepoint-nda-playbook.json`) — MVP uses
+  full-context stuffing: the whole file is included in every request
+  (see `lib/rulebook.ts`, which formats it into readable rule blocks
+  for the prompt). Fine at this size; once it grows much larger or
+  changes often, swap this for retrieval (chunk + embed + fetch
+  relevant rules per request) instead of sending the whole thing every
+  time.
 
 ## Local development
 
@@ -87,9 +97,9 @@ deployed at a stable URL.
   comments (`Range.insertComment`), not tracked-change edits. This is
   non-destructive and simpler to get right; a track-changes mode can be
   added later as an alternative apply path.
-- **Full-context rulebook.** No retrieval/vector search yet — the whole
-  rulebook file is sent on every request. Fine for a short policy doc,
-  not for a large or frequently-updated one.
+- **Full-context playbook.** No retrieval/vector search yet — the whole
+  playbook file is sent on every request. Fine at its current size, not
+  for a much larger or frequently-updated one.
 - **No auth yet.** The API route has no access control. Before any real
   deployment, add authentication (Entra ID / Azure AD SSO via
   `Office.context.auth.getAccessTokenAsync` is the standard pattern for
