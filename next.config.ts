@@ -4,13 +4,13 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        // Office loads the task pane in an iframe; relax the default
-        // frame-ancestors restriction for Office domains during MVP.
-        source: "/taskpane",
+        // Office (desktop and web) frames more than just /taskpane during
+        // validation and runtime handshakes, so this applies site-wide.
+        source: "/:path*",
         headers: [
           {
             key: "Content-Security-Policy",
-            value: "frame-ancestors 'self' https://*.officeapps.live.com https://*.office.com;",
+            value: "frame-ancestors 'self' https://*.officeapps.live.com https://*.office.com https://*.live.com;",
           },
         ],
       },
