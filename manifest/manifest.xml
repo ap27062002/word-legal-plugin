@@ -2,11 +2,8 @@
 <!--
   Office Add-in manifest (classic XML schema).
 
-  Before sideloading or publishing, replace every occurrence of
-  https://YOUR-DEPLOYED-HOST below with your deployed app's HTTPS URL
-  (e.g. https://word-legal-copilot.vercel.app). Office requires the
-  add-in to be served over HTTPS from a publicly reachable host, even
-  for local testing.
+  Points at the production deployment: https://word-legal-plugin.vercel.app
+  If you redeploy under a different domain, update every URL below to match.
 -->
 <OfficeApp
   xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
@@ -21,12 +18,12 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Rulebook Copilot" />
   <Description DefaultValue="Reviews the open document against the company rulebook and suggests changes." />
-  <IconUrl DefaultValue="https://YOUR-DEPLOYED-HOST/icon-32.png" />
-  <HighResolutionIconUrl DefaultValue="https://YOUR-DEPLOYED-HOST/icon-80.png" />
-  <SupportUrl DefaultValue="https://YOUR-DEPLOYED-HOST" />
+  <IconUrl DefaultValue="https://word-legal-plugin.vercel.app/icon-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://word-legal-plugin.vercel.app/icon-80.png" />
+  <SupportUrl DefaultValue="https://word-legal-plugin.vercel.app" />
 
   <AppDomains>
-    <AppDomain>https://YOUR-DEPLOYED-HOST</AppDomain>
+    <AppDomain>https://word-legal-plugin.vercel.app</AppDomain>
   </AppDomains>
 
   <Hosts>
@@ -34,7 +31,7 @@
   </Hosts>
 
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://YOUR-DEPLOYED-HOST/taskpane" />
+    <SourceLocation DefaultValue="https://word-legal-plugin.vercel.app/taskpane" />
   </DefaultSettings>
 
   <Permissions>ReadWriteDocument</Permissions>
@@ -78,13 +75,13 @@
 
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://YOUR-DEPLOYED-HOST/icon-16.png" />
-        <bt:Image id="Icon.32x32" DefaultValue="https://YOUR-DEPLOYED-HOST/icon-32.png" />
-        <bt:Image id="Icon.80x80" DefaultValue="https://YOUR-DEPLOYED-HOST/icon-80.png" />
+        <bt:Image id="Icon.16x16" DefaultValue="https://word-legal-plugin.vercel.app/icon-16.png" />
+        <bt:Image id="Icon.32x32" DefaultValue="https://word-legal-plugin.vercel.app/icon-32.png" />
+        <bt:Image id="Icon.80x80" DefaultValue="https://word-legal-plugin.vercel.app/icon-80.png" />
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Commands.Url" DefaultValue="https://YOUR-DEPLOYED-HOST/taskpane" />
-        <bt:Url id="Taskpane.Url" DefaultValue="https://YOUR-DEPLOYED-HOST/taskpane" />
+        <bt:Url id="Commands.Url" DefaultValue="https://word-legal-plugin.vercel.app/taskpane" />
+        <bt:Url id="Taskpane.Url" DefaultValue="https://word-legal-plugin.vercel.app/taskpane" />
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="Group.Label" DefaultValue="Legal Copilot" />

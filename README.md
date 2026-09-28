@@ -47,13 +47,17 @@ URL. Two ways to satisfy that during development:
 
 ## Sideloading into Word (testing)
 
-1. Deploy the app (or run it locally over HTTPS, see above).
-2. Edit `manifest/manifest.xml` and replace every
-   `https://YOUR-DEPLOYED-HOST` with your app's real URL.
-3. In Word: **Insert → Add-ins → My Add-ins → Upload My Add-in**, and
+The app is deployed at **https://word-legal-plugin.vercel.app**, and
+`manifest/manifest.xml` already points at it — make sure `ANTHROPIC_API_KEY`
+is set in the Vercel project's environment variables before testing.
+
+1. In Word: **Insert → Add-ins → My Add-ins → Upload My Add-in**, and
    select `manifest/manifest.xml`.
-4. The "Legal Copilot" group appears on the Home tab. Click
+2. The "Legal Copilot" group appears on the Home tab. Click
    **Review Rulebook** to open the task pane.
+
+(If you redeploy under a different domain, update every URL in
+`manifest/manifest.xml` to match before sideloading.)
 
 (On Mac, or for org-wide testing without publishing, you can also use
 `Insert → Add-ins → Admin Managed`, or shared-folder sideloading —
